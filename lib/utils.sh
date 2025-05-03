@@ -301,6 +301,7 @@ get_soc_family() {
 }
 
 load_profile() {
+    echo Loading profile
     if ! source "$SCRIPT_DIR/lib/$1.sh"
     then
         error $EXIT_UNKNOWN_OPTION "$1"
