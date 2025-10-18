@@ -1,0 +1,47 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: dm <dmtr.murashov@gmail.com>
+Date: Tue, 13 Jun 2025 14:47:32 +0800
+Subject: [PATCH] Enable sdmmc0
+
+---
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+index ee4f54ddcf..4a2cfa61eb 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+@@ -2605,7 +2605,10 @@ sdmmc0: dwmmc@fe2b0000 {
+ 		fifo-depth = <0x100>;
+ 		resets = <&cru SRST_SDMMC0>;
+ 		reset-names = "reset";
+-		status = "disabled";
++		status = "okay";
++		cap-mmc-highspeed;
++		broken-cd;
++		disable-wp;
+ 	};
+ 
+ 	sdmmc1: dwmmc@fe2c0000 {
+@@ -2276,7 +2276,10 @@ sdmmc2: dwmmc@fe000000 {
+ 		fifo-depth = <0x100>;
+ 		resets = <&cru SRST_SDMMC2>;
+ 		reset-names = "reset";
+-		status = "disabled";
++		status = "okay";
++		cap-mmc-highspeed;
++		broken-cd;
++		disable-wp;
+ 	};
+ 
+ 	dfi: dfi@fe230000 {
+@@ -2623,7 +2626,10 @@ sdmmc1: dwmmc@fe2c0000 {
+ 		fifo-depth = <0x100>;
+ 		resets = <&cru SRST_SDMMC1>;
+ 		reset-names = "reset";
+-		status = "disabled";
++		status = "okay";
++		cap-mmc-highspeed;
++		broken-cd;
++		disable-wp;
+ 	};
+ 
+ 	sfc: spi@fe300000 {
+
